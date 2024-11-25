@@ -6,6 +6,7 @@
 #define VECTOR_H_
 #include <iostream>
 #include <fstream>
+#include <cmath>
 namespace VECTOR
 {
 	class Vector
@@ -25,10 +26,10 @@ namespace VECTOR
 		Mode mode;
 // RECT or POL
 // private methods for setting values
-		void set_mag();
-		void set_ang();
-		void set_x();
-		void set_y();
+		//void set_mag();
+		//void set_ang();
+		//void set_x();
+		//void set_y();
 	public:
 		Vector();
 		Vector(double n1, double n2, Mode form = RECT);
@@ -39,7 +40,7 @@ namespace VECTOR
 		double yval() const {return y;}
 // report y value
 		//double magval() const {return mag;}
-		doubel magval() const {return (x*x + y*y);}
+		double magval() const {return (x*x + y*y);}
 
 // report magnitude
 		//double angval() const {return ang;}

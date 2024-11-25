@@ -1,4 +1,4 @@
-//11.1.cpp 
+//11.2.cpp 
 
 // randwalk.cpp -- using the Vector class
 // compile with the vect.cpp file
@@ -7,7 +7,7 @@
 // rand(), srand() prototypes
 #include <ctime>
 // time() prototype
-#include "vect.h"
+#include "11.2.h"
 int main()
 {
 using namespace std;
@@ -22,7 +22,7 @@ double target;
 double dstep;
 
 ofstream outFile;
-outFile.open("11.1.txt");
+outFile.open("11.2.txt");
 
 cout << "Enter target distance (q to quit): ";
 while (cin >> target)

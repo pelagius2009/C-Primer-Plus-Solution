@@ -28,5 +28,11 @@ void show_lbs() const;
 // show weight in pounds format
 void show_stn() const;
 // show weight in stone format
+
+// conversion functions
+// Mode form;
+
+
+
 };
 #endif

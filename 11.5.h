@@ -17,6 +17,8 @@ double pds_left;
 // fractional pounds
 double pounds;
 // entire weight in pounds
+
+Mode mode;
 public:
 Stonewt(double lbs);
 // constructor for double pounds

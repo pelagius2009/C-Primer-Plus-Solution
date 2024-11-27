@@ -22,17 +22,39 @@ Mode mode;
 public:
 Stonewt(double lbs);
 // constructor for double pounds
-Stonewt(int stn, double lbs, Mode form); // constructor for stone, lbs
+Stonewt(int stn, double lbs, Mode form = ST); // constructor for stone, lbs
 Stonewt();
 // default constructor
 ~Stonewt();
+
+/*
 void show_lbs() const;
 // show weight in pounds format
 void show_stn() const;
 // show weight in stone format
+*/
 
-// conversion functions
-// Mode form;
+
+void set_ST(){
+	mode = ST;
+}
+
+void set_IPD(){
+	mode = IPD;
+}
+
+void set_FPD(){
+	mode = FPD;
+}
+
+
+//operator overloading
+Stonewt operator+(const Stonewt & b) const;
+Stonewt operator-(const Stonewt & b) const;
+Stonewt operator*(double n) const;
+
+
+friend std::ostream & operator << (std::ostream & os, const Stonewt & b);
 
 
 

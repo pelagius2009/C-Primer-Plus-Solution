@@ -21,7 +21,7 @@ class Complex
 
 		friend std::ostream & operator << (std::ostream & os, const Complex & c);
 		friend Complex operator * (double n, const Complex & c);
-		friend operator >> (Complex & c);
+		friend bool operator >> (std::istream & is, Complex & c);
 };
 
 

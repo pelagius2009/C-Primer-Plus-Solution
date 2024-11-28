@@ -47,19 +47,21 @@ Complex operator * (double n, const Complex & c)
 	return Complex(n * c.real, n * c.imag);
 }
 
-std::ostream & operator << (std::ostream & os, const Complex & c);
+std::ostream & operator << (std::ostream & os, const Complex & c)
 {
-	cout << "(" << c.real << ", " << c.imag << ")" << std::endl;
+	cout << "(" << c.real << ", " << c.imag << "i)" << std::endl;
+	return os;
 }
 
-void operator >> (Complex & c)
+bool operator >> (std::istream & is, Complex & c)
 {
 	//cout << "Enter a complex number (q to quit): \n";
 	cout << "real: ";
-	if (cin >> c.real)
+	if (is >> c.real)
 	{	
 		cout << "imaginary: ";
-		cin >> c.imag;
+		is >> c.imag;
+		return true;
 	}
 	else
 		return false;

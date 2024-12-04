@@ -26,14 +26,14 @@ private:
 char ms_ps[50];
 
 public:
-virtual void Report() const;
 Classic(char *s1, char *s2, char *s3, int n, double x);
-Classic(const Classic & d);
+Classic(const Classic & c);
 Classic();
 ~Classic();
-
+virtual void Report() const;
+virtual Classic & operator = (const Classic & c);
 	 
-}
+};
 
 
 

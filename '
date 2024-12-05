@@ -26,7 +26,7 @@ private:
 char ms_ps[50];
 
 public:
-Classic(char *s1, char *s2, char * s3, int n, double x);
+Classic(char *s1, char *s2, char *s3, int n, double x);
 Classic(const Classic & c);
 Classic();
 ~Classic();

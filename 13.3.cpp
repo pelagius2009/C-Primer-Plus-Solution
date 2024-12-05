@@ -20,7 +20,7 @@ DMA::~DMA()
 {
 delete [] label;
 }
-/*
+
 DMA & DMA::operator=(const DMA & rs)
 {
 if (this == &rs)
@@ -31,7 +31,7 @@ std::strcpy(label, rs.label);
 rating = rs.rating;
 return *this;
 }
-*/
+
 
 std::ostream & operator<<(std::ostream & os, const DMA & rs)
 {
@@ -68,13 +68,15 @@ baseDMA & baseDMA::operator=(const baseDMA & rs)
 {
 if (this == &rs)
 return *this;
-//delete [] label;
+delete [] label;
 label = new char[std::strlen(rs.label) + 1];
 std::strcpy(label, rs.label);
 rating = rs.rating;
 return *this;
 }
 */
+
+
 /*
 std::ostream & operator<<(std::ostream & os, const baseDMA & rs)
 {
@@ -139,7 +141,7 @@ hasDMA & hasDMA::operator=(const hasDMA & hs)
 {
 if (this == &hs)
 return *this;
-baseDMA::operator=(hs); // copy base portion
+DMA::operator=(hs); // copy base portion
 delete [] style;
 // prepare for new style
 style = new char[std::strlen(hs.style) + 1];

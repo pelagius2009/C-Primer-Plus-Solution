@@ -49,7 +49,7 @@ lacksDMA(const char * c = "blank", const char * l = "null",
 int r = 0);
 lacksDMA(const char * c, const DMA & rs);
 friend std::ostream & operator<<(std::ostream & os,const lacksDMA & rs);
-void view();
+void View();
 };
 // derived class with DMA
 class hasDMA :public DMA

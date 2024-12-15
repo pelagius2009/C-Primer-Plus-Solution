@@ -1,4 +1,4 @@
-//14.1.h
+//14.2.h
 
 #ifndef WINE_H_
 #define WINE_H_
@@ -31,23 +31,27 @@ T2 & Pair<T1, T2>::second()
 {
 	return b;
 }
+typedef std::valarray<int> ArrayInt;
+typedef Pair<ArrayInt, ArrayInt> PairArray;
 
 
-class Wine
+class Wine : private std::string, private PairArray
 {
 private:
-	typedef std::valarray<int> ArrayInt;
-	typedef Pair<ArrayInt, ArrayInt> PairArray;
-	std::string w_name; // wine name
-	PairArray w_feat; // wine feature
+//	std::string w_name; // wine name
+//	PairArray w_feat; // wine feature
 	int w_year;//number of years
+
 public:
-	Wine(const char * l, int y, const int yr[], const int bot[]);
-	Wine(const char *l, int y);
+	explicit Wine(const char * l, int y, const int yr[], const int bot[]);
+	explicit Wine(const char *l, int y);
 	void GetBottles();
-    const std::string & Label() const{return w_name;}
+//    const std::string & Label() const{return w_name;}
+	const std::string & Label() const;
 	int sum();
 	void Show() const;
+//	friend PairArray & PairArray::operator=(PairArray(ArrayInt(), ArrayInt()));
+	
 };
 
 

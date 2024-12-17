@@ -3,6 +3,11 @@
 #ifndef QUEUE_H_
 #define QUEUE_H_
 #include <string>
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+
 
 template <class Type>
 class Queue
@@ -73,7 +78,7 @@ int Queue<Type>::queuecount() const
 
 
 template <class Type>
-bool Queue<Type>::enqueue(const Item & item)
+bool Queue<Type>::enqueue(const Type & item)
 {
 	if (isfull())
 		return false;
@@ -128,21 +133,29 @@ public:
 	Worker() : fullname("no one"), id(0L) {}
 	Worker(const std::string & s, long n)
 	: fullname(s), id(n) {}
-	virtual ~Worker() = 0;
+/*	virtual ~Worker() = 0;
 	// pure virtual destructor
 	virtual void Set();
 	virtual void Show() const;
-};
+*/
+	//virtual ~Worker() = 0;
+	// pure virtual destructor
+	void Set();
+	void Show() const;
 
-Worker::~Worker() {}
+};
+//Worker::~Worker() {}
 void Worker::Set()
 {
 	cout << "Enter worker's name: ";
-	getline(cin, fullname);
+//	getline(cin, fullname);
+	cin >> fullname;
+	//cin.get();
 	cout << "Enter worker's ID: ";
 	cin >> id;
-	while (cin.get() != '\n')
+/*	while (cin.get() != '\n')
 		continue;
+		*/
 }
 void Worker::Show() const
 {

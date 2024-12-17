@@ -14,10 +14,11 @@ int main()
 
 	Queue< Worker *> qu;
 
+	char choice;
+	Worker * temp_worker;
+
 	while(true)
 	{
-		char choice;
-		Worker * temp_worker;
 		cout << "Enter the operation to the queue:\n"
 			<< "a: add a item into the queue\n"
 			<< "d: delete a item of the queue\n"
@@ -38,12 +39,14 @@ int main()
 			qu.enqueue(temp_worker);
 			break;
 			case 'd':
-
-		 }
-		
-
-
+			qu.dequeue(temp_worker);
+			break;
+			case 'q':
+			break;
+		 }	
+		cin.get();
 	}
 
+	cout << "Bye\n";
 	return 0;
 }

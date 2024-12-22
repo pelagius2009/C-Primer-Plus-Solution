@@ -9,14 +9,15 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-Person::~Person();
+Person::~Person(){};
 
 void Person::Get()
 {
 	cout << "First Name: ";
 	getline(cin, first_name);
 	cout << "Last Name: ";
-	getline(cin, last_name);
+//getline(cin, last_name);
+	cin >> last_name;
 	while (cin.get() !='\n')
 		continue;
 }
@@ -25,6 +26,12 @@ void Person::Data() const
 {
 	cout << "First Name: "<< first_name << endl;
 	cout << "Last Name: "<< last_name << endl;
+}
+
+void Person::Show()
+{
+	cout << "Person infomation:\n";
+	Data();
 }
 
 void Gunslinger::Data()const
@@ -52,7 +59,7 @@ void Gunslinger::Set()
 	Get();
 }
 
-void Gunslinger::Show()const
+void Gunslinger::Show()
 {
 	cout << "Category: Gunslinger\n";
 	Person::Data();
@@ -61,7 +68,7 @@ void Gunslinger::Show()const
 
 int PokerPlayer::Draw()
 {
-	srand(time());
+	srand(time(NULL));
 	int card_val = rand() % 52 + 1;
 	return card_val;  
 }
@@ -79,7 +86,7 @@ void PokerPlayer::Show()
 }
 */
 
-void BadDude::Data()
+void BadDude::Data()const
 {
 	Person::Data();
 	Gunslinger::Data();
@@ -97,7 +104,7 @@ void BadDude::Set()
 	Get();
 }
 
-void BadDude::Show() const
+void BadDude::Show()
 {
 	cout << "Category: BadDude\n";
 	Person::Data();

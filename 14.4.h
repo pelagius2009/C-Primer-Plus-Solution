@@ -13,12 +13,12 @@ private:
 protected:
 	virtual void Data() const;
 	virtual void Get();
-
 public:
 	Person():first_name("Nobody"), last_name("Cheapman"){}
 	Person(const std::string s1, const std::string s2):first_name(s1), last_name(s2){}
-    virtual	void Show() const;
+    virtual	void Show();
 	virtual ~Person() = 0;
+	virtual void Set() = 0;
 };
 
 class Gunslinger : virtual public Person
@@ -33,16 +33,17 @@ public:
 	Gunslinger():Person(), draw_time(0L), notch_number(0) {}
 	Gunslinger(const std::string & s1, const std::string & s2, double dt = 0L, int nn = 0):Person(s1, s2), draw_time(dt), notch_number(nn){}
 	Gunslinger(const Person & ps, double dt = 0L, int nn = 0):Person(ps), draw_time(dt), notch_number(nn){}
-	double Draw(return draw_time;)
+	double Draw(){return draw_time;}
 	void Set();
-	void Show() const;
+	void Show();
 };
 
 class PokerPlayer : virtual public Person
 {
 public:
 	PokerPlayer(const std::string & s1, const std::string & s2):Person(s1, s2){}
-	Pokerplayer(const Person & ps):Person(ps){}
+	PokerPlayer(const Person & ps):Person(ps){}
+	PokerPlayer():Person(){}
 	int Draw();
 	void Set();
 	//void Show() const;
@@ -55,23 +56,23 @@ protected:
 	void Get();
 
 public:
-	BadDude() {}
+	BadDude(){}
 	BadDude(const std::string & s1, const std::string & s2, double dt = 0L, int nn = 0):Person(s1, s2), Gunslinger(s1, s2, dt, nn), PokerPlayer(s1, s2){}
-	BadDude(const Person & ps, double dt = 0L, int nn = 0):Person(ps), Gunslinger(ps, dt, nt), PokerPlayer(ps){}
-	BadDude(const Gunslinger & gs):Person(gs), Gunslinger(gs), Pokerplayer(gs){}
+	BadDude(const Person & ps, double dt = 0L, int nn = 0):Person(ps), Gunslinger(ps, dt, nn), PokerPlayer(ps){}
+	BadDude(const Gunslinger & gs):Person(gs), Gunslinger(gs), PokerPlayer(gs){}
 	BadDude(const PokerPlayer & pp):Person(pp), Gunslinger(pp), PokerPlayer(pp){}
-	double Gdraw(return Gunslinger::draw_time;)
-	int CDraw(return PokePlayer::Draw();)
+	double Gdraw(){return Gunslinger::Draw();}
+	int CDraw(){return PokerPlayer::Draw();}
 	void Set();
-	void Show() const;
+	void Show();
 };
 
-class Card()
+class Card
 {
 private:
 	int rank;
 	std::string suit;
 
-}
+};
 
 #endif

@@ -43,15 +43,23 @@ return "gmean() arguments should be >= 0\n";
 
 class h_err : public std::logic_error
 {
+	private:
+		double a;
+		double b;
 	public:
-		explicit h_err(const std::string & s = "hmean error, invalid arguments: a = -b\n");
+		explicit h_err(double p_a, double p_b,
+	const std::string & s = "hmean error, invalid arguments: a = -b\n");
 	virtual ~h_err() throw(){}
 };
 
 class g_err : public std::logic_error
 {
+	private:
+		double a;
+		double b;
 	public:
-		explicit g_err(const std::string & s = "gmean error, arguments should be >= 0 \n");
+		explicit g_err(double p_a, double p_b,
+	const std::string & s = "gmean error, arguments should be >= 0 \n");
 	virtual ~g_err() throw(){}
 };
 

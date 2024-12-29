@@ -1,22 +1,34 @@
 //15.2.cpp
 //error4.cpp – using exception classes
-#include "15.2.h"
+#include "15.3.h"
 #include <iostream>
 #include <cmath> // or math.h, unix users may need -lm flag
 //#include "exc_mean.h"
 // function prototypes
 using std::string;
+using std::cout;
+using std::cin;
+using std::endl;
 double hmean(double a, double b);
 double gmean(double a, double b);
 
-h_err::h_err(const string & s):std::logic_error(s)
+h_err::h_err(double p_a, double p_b, const string & s):std::logic_error(s)
 {
+	a = p_a;
+	b = p_b;
+	cout << "a = "<< a << ", "
+		<< "b = " << b << endl;
 }
 
-g_err::g_err(const string & s):std::logic_error(s)
+g_err::g_err(double p_a, double p_b, const string & s):std::logic_error(s)
 {
-}
+	a = p_a;
+	b = p_b;
+	cout << "a = "<< a << ", "
+		<< "b = " << b << endl;
 
+
+}
 
 
 int main()
@@ -85,14 +97,14 @@ double hmean(double a, double b)
 {
 if (a == -b)
  // throw bad_hmean(a,b);
-	throw h_err();
+	throw h_err(a,b);
 	return 2.0 * a * b / (a + b);
 }
 double gmean(double a, double b)
 {
 if (a < 0 || b < 0)
 //throw bad_gmean(a,b);
-	throw g_err();
+	throw g_err(a,b);
 	return std::sqrt(a * b);
 }
 

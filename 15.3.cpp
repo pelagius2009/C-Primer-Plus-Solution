@@ -1,4 +1,4 @@
-//15.2.cpp
+//15.3.cpp
 //error4.cpp – using exception classes
 #include "15.3.h"
 #include <iostream>
@@ -12,6 +12,7 @@ using std::endl;
 double hmean(double a, double b);
 double gmean(double a, double b);
 
+<<<<<<< HEAD
 h_err::h_err(double p_a, double p_b, const string & s):std::logic_error(s)
 {
 	a = p_a;
@@ -26,6 +27,25 @@ g_err::g_err(double p_a, double p_b, const string & s):std::logic_error(s)
 	b = p_b;
 	cout << "a = "<< a << ", "
 		<< "b = " << b << endl;
+=======
+h_err::h_err(double p_a, double p_b,const string & s)
+:std::logic_error(s)
+//, a(p_a), b(p_b)
+{
+	a = p_a;
+	b = p_b;
+	cout << "a = "<< a << " ," << "b = " << b << endl;
+}
+
+g_err::g_err(double p_a, double p_b, const string & s)
+:std::logic_error(s)
+//, a(p_a), b(p_b)
+{
+	a = p_a;
+	b = p_b;
+	cout << "a = "<< a << " ," << "b = " << b << endl;
+}
+>>>>>>> origin/baosight
 
 
 }
@@ -46,7 +66,7 @@ while (cin >> x >> y)
 	cout << "Harmonic mean of " << x << " and " << y
 	<< " is " << z << endl;
 	}
-	catch (h_err & he)
+	catch (h_err & hel)
 	{
 		cout << he.what() << endl;
 		cout << "Try again.\n";

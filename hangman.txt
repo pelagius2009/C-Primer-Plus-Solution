@@ -1,0 +1,8 @@
+There are many more methods, but these are enough to put together a sample pro-
+gram that’s a graphically impaired version of the word game Hangman.The game stores a
+list of words in an array of string objects, picks a word at random, and lets you guess let-
+ters in the word. Six wrong guesses, and you lose.The program uses the find() function
+to check your guesses and the += operator to build a string object to keep track of your
+wrong guesses.To keep track of your good guesses, the program creates a word the same
+length as the mystery word but consisting of hyphens.The hyphens are then replaced by
+correct guesses. Listing 16.3 shows the program.
